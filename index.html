@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HearSL</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+
+<style>
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .image-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .card {
+        width: 200px;
+        margin: 10px;
+        border: 1px solid #cf1c1c;
+        border-radius: 5px;
+        padding: 10px;
+        text-align: center;
+    }
+    .card img {
+        width: 150px; 
+        height: 150px; 
+        object-fit: cover; 
+    }
+    .card-name {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    *{
+         box-sizing: border-box;
+    }
+    /* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: rgb(0, 0, 0);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.container2 {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.container2::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: rgb(143, 14, 14);
+  border: 4px solid #FF9F55;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid rgb(77, 77, 77);
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent rgb(194, 194, 194);
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid rgb(77, 77, 77);
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent rgb(194, 194, 194);
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  background-color: rgb(160, 160, 160);
+  position: relative;
+  border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+/* Place the timelime to the left */
+  .timeline::after {
+    left: 31px;
+  }
+
+/* Full-width containers */
+  .container2 {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+/* Make sure that all arrows are pointing leftwards */
+  .container2::before {
+    left: 60px;
+    border: medium solid rgb(77, 77, 77);
+    border-width: 10px 10px 10px 0;
+    border-color: transparent rgb(192, 192, 192) transparent transparent;
+  }
+
+/* Make sure all circles are at the same spot */
+  .left::after, .right::after {
+    left: 15px;
+  }
+
+/* Make all right containers behave like the left ones */
+  .right {
+    left: 0%;
+  }
+}
+
+.meetteam {
+            background-color: #faefe6;
+            padding: 30px;
+        }
+
+        .carddowndolad {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            width: calc(35% - 20px); /* Set width and adjust margins */
+            margin: 10px;
+            display: inline-block; /* Align cards in a row */
+            vertical-align: top; /* Align cards to the top of the row */
+        }
+
+        .card-content {
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .download-btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            background-color: #28a745;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hover effect */
+        .download-btn:hover {
+            background-color: #218838;
+        }
+
+        /* Styling for the SVG icon */
+        .bi-download {
+            margin-right: 5px;
+        }
+</style>
+
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark">
+        <div class="row py-2 px-lg-5">
+            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center text-white">
+                    <small><i class="fa fa-phone-alt mr-2"></i>+94112 657 974</small>
+                    <small class="px-3">|</small>
+                    <small><i class="fa fa-envelope mr-2"></i>HearSL@Srilanka.com</small>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-white pl-2" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
+            <a href="index.html" class="navbar-brand ml-lg-3">
+                <h1 class="m-0 display-5 text-uppercase text-primary"><img src="img/profile1.png" alt="" class="mr-2" />Hear SL</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <div class="nav-item dropdown">
+                        <a href="projectScope.html" class="nav-link dropdown-toggle" data-toggle="dropdown">Project Scope</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="pages/literatureSurvey.html" class="dropdown-item" >Literature Survey</a>
+                            <a href="pages/ResearchGap.html" class="dropdown-item" >Research Gap</a>
+                            <a href="pages/researchproblemnsolution.html" class="dropdown-item" >Research Problem & Solution</a>
+                            <a href="pages/researchObjectives.html" class="dropdown-item" >Research Objectives</a>
+                            <a href="pages/methodology.html" class="dropdown-item" >Methodology</a>
+                            <a href="pages/technologies.html" class="dropdown-item" >Technologies</a>
+                        </div>
+                    </div>
+                    <a href="pages/milestones.html" class="nav-item nav-link">Milestones</a>
+                    <a href="pages/downdocuments.html" class="nav-item nav-link" >Downloads</a>
+                    <a href="#" class="nav-item nav-link" >About Us</a>
+                    <a href="#" class="nav-item nav-link" >Contact Us</a>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid mb-5">
+        <div class="container text-center py-5">
+            <h1 class="text-white display-3 mb-5">Hear SL PROJECT</h1>
+            <h1 class="text-primary mb-4">This is for all Sri lankan peoples</h1>
+            <!-- <div class="mx-auto" style="width: 100%; max-width: 600px;">
+                <div class="input-group">
+                    <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Tracking Id">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary px-3">Track & Trace</button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <div class="container-fluid pt-5">
+    <!-- Research Contents --> 
+                <!--Literature Survey --> 
+                <div class="container">
+                    <div  style="text-align: center;">
+                        <h1>Literature Survey</h1>
+                    </div>
+                <div class="container">
+                    <div class="left-column" text-align = "center">
+                        <h1>Overview</h1>
+                        <p>
+                            In the past, individuals with hearing and speech impairments in Sri Lanka encountered significant challenges while trying to integrate into society. Due to their disabilities, they faced difficulties in communicating effectively with others. Their primary means of expressing their needs, emotions, and feelings to the world was through Sign Language. However, a significant barrier existed as most of society was unfamiliar with Sign Language. Consequently, those with disabilities had to rely on individuals proficient in Sign Language to facilitate communication with those who did not understand it. Without this intermediary, it was often challenging for ordinary individuals to comprehend what the disabled person was trying to convey.
+                            <br /><br />
+                            Moreover, while numerous applications and devices worldwide were available for translating Sign Language into English and other languages, there was a noticeable gap in the Sri Lankan context. Although there had been research efforts to create applications that could translate Sign Language into Sinhala, these applications had limitations. For instance, some could only convert one sign at a time into a single word or letter in Sinhala. There were no applications capable of translating entire sign language presentations into Sinhala through methods like video recording. Our project aimed to address this gap by developing an application with the ability to perform such translations.
+                            <br /><br />
+                            Another observation was that ordinary people had various means of communication through applications designed for speaking, listening, and visual interaction. However, individuals with hearing impairments, speech impairments, and visual impairments faced challenges in using these applications. To bridge this gap, we endeavored to create a specialized chat application that facilitated seamless communication between those with hearing and speech impairments and the general population. This chat application was complemented by our Sign Language to Sinhala language converter, making it an inclusive tool for all.
+                        </p>
+                    </div>
+                    <div class="right-column">
+                        <h1>Previous Surveys</h1>
+                        <p>
+                            <strong>Prototype Machine Translation System From Text-To-Indian Sign Language (2008):</strong> In 2008, Tirthankar Dasgupta, Sandipan Dandpat, and Anupam Basu introduced a prototype machine translation system aimed at serving as a teaching and learning tool for Indian Sign Language. The system accepts simple English sentences as input and facilitates information retrieval. However, it lacks a sign synthesis module using animated avatars and detailed working descriptions.
+                            <br /><br />
+                            <strong>Sign Language to Speech Translation System Using PIC Microcontroller (2013):</strong> Gunasekaran K. and Manikandan R. developed a Sign Language to Speech Translation System in 2013, offering high dependability, rapid responsiveness, and precise hand movement. It is versatile, allowing the installation of different languages without altering the original code, but its main drawback is the increased manufacturing cost.
+                            <br /><br />
+                            <strong>Voice-Controlled Artificial Handspeak System (2014):</strong> In 2014, Jonathan Gatti, Carlo Fonda, Livio Tenze, and Enrique Canessa created a paper robotic hand prototype. Utilizing a low-cost 3D printer and open-source technology, the system is controlled by a voice recognition engine and Arduino UNO connected to a Raspberry Pi. The current iteration has some room for improvement.
+                            <br /><br />
+                            <strong>Translating Indian Sign Language to Text and Voice Messages (2015):</strong> "Translating Indian Sign Language to Text and Voice Messages" (2015) presents a system with portability and user independence, capable of interpreting sign language into text messages. It employs an energy-efficient microcontroller and a user-friendly smartphone application but comes with a higher cost.
+                            <br /><br />
+                            <strong>Intelligent Arabic Sign Language to Arabic Text Translation (2018):</strong> In 2018, A. E. E. El Alfi and S. M. EL Atawy introduced an intelligent Arabic Sign Language to Arabic text translation technology, supporting a mobile conversation app. While it effectively resolved language issues, it couldn't interpret text from Arabic into Arabic sign language and faced challenges in matching grammatical conventions.
+                            <br /><br />
+                            <strong>Voice to Sign Language Translation System for Malaysian Deaf People (2009):</strong> The 2009 paper "V2S: Voice to Sign Language Translation System for Malaysian Deaf People" by Oi Mean Foong, Tang Jung Low, and Wai Wan La discusses a system for Malaysian sign language. Its main advantage is voice support (English language), but it requires initial speech pattern training using spectral parameters.
+                            <br /><br />
+                            <strong>Android Application to Aid Uneducated Deaf-Dumb People (2014):</strong> Dalia Nashat, Abeer Shoker, Fowzyah Al-Swat, and Reem Al-Ebailan introduced an Android application in 2014 aimed at helping uneducated deaf and dumb individuals. It offers communication support, quizzes, games, and a sign language keyboard. However, it has limitations such as one sign per letter, Android OS support only, no face-to-face interaction, and a focus on teaching rather than practical use.
+                            <br /><br />
+                            <strong>Design and Implementation of a Sign Language Recognition System for Sinhala Language:</strong> H.M.D. Piumal and H.M.N. Dilum Bandara's work focuses on a sign language recognition system for Sinhala language. It employs sensor data and machine learning techniques like decision trees, naive bayes, and k-nearest neighbor algorithms to identify Sinhala sign language motions. The authors conducted tests using a specially designed sensor system to gather data from 10 Sinhala sign language motions.
+                        </p>
+                    </div>
+                </div>
+                </div>
+                <!--Literature Survey End-->
+<hr/>
+                <!--Research Gap-->
+                <div class="container">
+                    <h1>Research Gap</h1>
+                    <p>
+                      In the past, it was a well-known fact that sign language devices existed for various languages, but most of these devices could only translate basic words and individual alphabet characters. Furthermore, these devices were in the early stages of development, which prompted us to embark on a mission to elevate them to an advanced level. While there were previous research efforts in Sri Lanka aimed at translating Sinhala sign language using specialized devices and cameras, they remained in their infancy, and their practical implementation was limited.
+                        <br /><br />
+                        In light of these challenges, we set out to create a smartphone application capable of translating complete sentences from sign language to Sinhala (Singlish). Our research aimed to bridge the gap between the hearing and speech impaired community and the wider Sri Lankan population. Unlike the general public, people with these disabilities faced issues when communicating using modern chat applications like WhatsApp. Our solution was a unique chat application, catering to the hearing, speech, and visually impaired individuals, facilitating communication through Sign Animations, Sign Emojis, Sinhala Text, and Sinhala Voice messages according to the user's specific disability.
+                        <br /><br />
+                        To enable voice-to-text and text-to-voice conversion in Sinhala, we incorporated Google text-to-speech and speech-to-text APIs. Additionally, we developed a specialized SAESV Converter (Sign Animation, Emoji to Sinhala Voice Converter) API, a groundbreaking tool for transforming Sign Language Animations and Emojis into Sinhala voice.
+                        <br /><br />
+                        To personalize the application for users based on their disability, we implemented a chatbot, which allowed users to specify their disability (blindness, speech impairment, or hearing impairment) and customized the application accordingly.
+                        <br /><br />
+                        Our research contributed to the development of a system capable of producing Sinhala sign language word-by-word, making it more comprehensible for the hearing-impaired. Unlike previous research in Sri Lanka, our system was unique in its approach, focusing on everyday words. Furthermore, users could input their ideas by voice or Sinhala typing, a feature previously unavailable for the Sinhala language.
+                        <br /><br />
+                        We believed that our application could significantly benefit the Sinhalese hearing-impaired community in Sri Lanka, bridging the gap between them and the wider population. This research marked the first attempt to create a comprehensive database of Sinhala sign language meanings in 'Singlish,' paving the way for more accessible communication.
+                        <br /><br />
+                        However, it's important to note that there were no existing applications, devices, or software in Sri Lanka capable of translating 'Singlish' sign language into the relevant Sinhala voice. This research filled that void, providing a unique solution. Users had the option to select the correct Sinhala word related to the sign shown by the system, adding a level of personalization to the translation process.
+                        <br /><br />
+                        Our research represented a significant step forward, aiming to improve the lives of hearing, speech, and visually impaired individuals in Sri Lanka and foster greater inclusivity and understanding among the community.
+                        
+                    </p>
+                </div>
+                <!--Research Gap End-->
+                <hr/>
+                <!--Research Problem Solution-->
+                <div class="container">
+                    <div class="problem">
+                        <h1>Problem Statement</h1>
+                        <p>In 2012, the World Health Organization estimated that 7.5% of Sri Lanka's population has hearing loss, with additional percentages facing blindness and vision impairments. In 2023, these figures may have increased. Deaf and blind individuals in Sri Lanka encounter societal challenges due to a lack of awareness and resources for sign language. To address this, the author aims to develop a system that converts 'Singlish' sign language to Sinhala voice speech. The system's purpose is to facilitate communication and inclusion for the deaf and hard-of-hearing community in Sri Lanka. It addresses barriers in education, employment, and social interaction, aiming to reduce stigma and improve social inclusion. The article also highlights the need for technology solutions to bridge the communication gap and improve accessibility for the deaf and mute community. This research emphasizes the importance of culturally sensitive technology solutions to promote social equity and inclusion.</p>
+                    </div>
+                    <div class="solution">
+                        <h1>Solution</h1>
+                        <p>Special Sign Emojis and Animations: The chat application will feature a unique set of sign Emojis and animations specially designed to facilitate communication for the deaf and mute community. Users, including the general population, can employ these symbols to chat and express themselves effectively.</p>
+                        <p>Sinhala Voice Capture and Conversion: The solution will incorporate an inbuilt feature for Sinhala voice capture and conversion. This technology will enable users to transform spoken Sinhala into sign Emojis or animations, enhancing communication with those who rely on sign language for expression.</p>
+                        <p>Sign Detection System with Singlish Conversion: Additionally, a system with advanced computer vision capabilities will be implemented. This system can detect signs presented to a camera and accurately decipher the meaning of those signs. It will then convert the detected meaning into 'Singlish,' which represents the Sinhala meaning of the sign. This feature will significantly benefit the deaf and mute community in their interactions with others.</p>
+                    </div>
+                </div>
+                <!--Research Problem Solution End-->
+                <hr/>
+                <!--Research Objectives-->
+                <div class="container">
+                    <h1>Project Objectives</h1>
+                    <ul>
+                        <li>Sub Objective One: Sign Language to Sinhala meaning mapping section and Real-time new Sign update & meaning unit</li>
+                        <li>Sub Objective Second: Sinhala voice and the Sinhala meaning mapping section & real-time voice and meaning update unit</li>
+                        <li>Sub Objective Three: Sinhala voice to animated sign mapping section and visual sign animation output unit</li>
+                        <li>Sub Objective Four: Create a Deaf-Blind chat messenger application which can identify by a chatbot in the chat application. By providing options to select the users. Based on the option inputs, the chatbot will automatically set the chat application’s functionality of send messages and receive messages types.</li>
+                    </ul>
+                </div>
+                <!--Research Objectives End-->
+                <hr/>
+                <!--Research Methodology-->
+                <div class="container">
+                    <div class="problem">
+                        <h1>Project Description</h1>
+                        
+                        <h2>A. Sign Language to Sinhala voice</h2>
+                        <p>This project focuses on creating a communication system for deaf-blind people that includes translating sign language to Singlish and then Singlish to Sinhala. It involves various steps, including a literature review, compiling a database of Singlish representations and corresponding Sinhala words, creating a dataset for Sinhala voice speech samples, examining phonetic patterns in Singlish, developing algorithms to handle variances in Singlish, and creating an interface for tactile communication. The goal is to enable voice-based communication for deaf-blind individuals through the synthesis of Sinhala words.</p>
+                
+                        <h2>B. Sinhala voice to sign animation</h2>
+                        <p>This project aims to develop a deep learning model that can recognize spoken Sinhala and convert it into accurate sign language animations. The process involves gathering a dataset of spoken Sinhala and associated sign language animations, utilizing natural language processing techniques to transform spoken Sinhala into text, employing computer vision techniques to generate sign language animations, and creating an integrated system for real-time translation. The project also emphasizes user-friendly interfaces and rigorous testing for accuracy and efficiency.</p>
+                   
+                    
+                        <h2>C. Chat application for the deaf-blind community</h2>
+                        <p>This project involves the development of a chat application in Sinhala that can be used by people with various disabilities, including those who can't hear, can't talk, can't see, and normal users. The application supports different methods of message sending and receiving based on the user's disability, including sign emojis, animations, Sinhala letters, voice messages, or a combination of these methods. The system converts messages into various forms (Sinhala voice, Sinhala text, Sign Emojis, and Animations) based on user preferences. It describes the creation of special datasets, APIs for identifying sign animations and emojis, and the development of the chat application as a web application. The aim is to provide accessible communication options for a diverse user base.</p>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <h2>Project Overview Diagram</h2>
+                    <div style="display: flex; justify-content: center;">
+                        <img src="img/Group%20412.png" alt="Project Image" height="1000px" width="1100px">
+                    </div>
+                </div>
+                <!--Research Methodology End-->
+                <hr/>
+                <!--Technologies used-->
+                <div class="container">
+                    <div  style="text-align: center;">
+                        <h1>Technologies Used</h1>
+                    </div>
+                  <div class="image-gallery">
+                      <div class="card">
+                          <img src="img/technology/adbeae.png" alt="Image 1">
+                          <p class="card-name">Adobe After Effects</p>
+                      </div>
+                      <div class="card">
+                          <img src="img/technology/js.png" alt="Image 2">
+                          <p class="card-name">Javascript</p>
+                      </div>
+                      <div class="card">
+                          <img src="img/technology/fastapi.png" alt="Image 3">
+                          <p class="card-name">Fast API</p>
+                      </div>
+                      <div class="card">
+                        <img src="img/technology/figma.png" alt="Image 1">
+                        <p class="card-name">Figma</p>
+                    </div>
+                    <div class="card">
+                        <img src="img/technology/ibmcloud.png" alt="Image 2">
+                        <p class="card-name">IBM-Cloud</p>
+                    </div>
+                    <div class="card">
+                        <img src="img/technology/jupyter.jpg" alt="Image 3">
+                        <p class="card-name">Jupyter Notebook</p>
+                    </div>
+                    <div class="card">
+                        <img src="img/technology/mongodb.png" alt="Image 3">
+                        <p class="card-name">MongoDB</p>
+                    </div>
+                    <div class="card">
+                        <img src="img/technology/python.png" alt="Image 1">
+                        <p class="card-name">Python</p>
+                    </div>
+                    <div class="card">
+                        <img src="img/technology/opencv.png" alt="Image 2">
+                        <p class="card-name">OpenCV</p>
+                    </div>
+                    <div class="card">
+                        <img src="img/technology/react.png" alt="Image 3">
+                        <p class="card-name">React</p>
+                    </div>
+                    <div class="card">
+                      <img src="img/technology/vscode.jpg" alt="Image 1">
+                      <p class="card-name">Visual Studio Code</p>
+                  </div>
+                  <div class="card">
+                      <img src="img/technology/pycharm.png" alt="Image 2">
+                      <p class="card-name">PyCharm IDE</p>
+                  </div>
+                  <div class="card">
+                      <img src="img/technology/pyqt5.JPG" alt="Image 3">
+                      <p class="card-name">PyQtp5</p>
+                  </div>
+                  <div class="card">
+                      <img src="img/technology/tensorflow.png" alt="Image 3">
+                      <p class="card-name">Tensorflow</p>
+                  </div>
+                      <!-- Add more card divs for additional images -->
+                  </div>
+                </div>
+                <!--Technologies used end-->
+                <hr/>
+                <!--Milestones-->
+                <div class="container">
+                    <div  style="text-align: center;">
+                        <h1>Research Project Milestones</h1>
+                    </div>
+                   <div class="timeline">
+                        <div class="container2 left">
+                          <div class="content">
+                            <h2>2022-November-10</h2>
+                            <p>Brainstorming Workshop</p>
+                          </div>
+                        </div>
+                        <div class="container2 right">
+                          <div class="content">
+                            <h2>2023-Feb-13</h2>
+                            <p>submit the Topic Assessment Document</p>
+                          </div>
+                        </div>
+                        <div class="container2 left">
+                             <div class="content">
+                               <h2>2023-Mar-31</h2>
+                               <p>Proposal Presentation</p>
+                             </div>
+                           </div>
+                           <div class="container2 right">
+                             <div class="content">
+                               <h2>2023-May-05</h2>
+                               <p>Individual Project Proposal Report Submission</p>
+                             </div>
+                           </div>
+                           <div class="container2 left">
+                             <div class="content">
+                               <h2>2023-May-26</h2>
+                               <p>Progress Presentation 01</p>
+                             </div>
+                           </div>
+                           <div class="container2 right">
+                             <div class="content">
+                               <h2>2023-May-26</h2>
+                               <p>Statement Document 01 Submission</p>
+                             </div>
+                           </div>
+                           <div class="container2 left">
+                             <div class="content">
+                               <h2>2023-Aug-15</h2>
+                               <p>Research Paper Submission To ICAC</p>
+                             </div>
+                           </div>
+                           <div class="container2 right">
+                             <div class="content">
+                                  <h2>2023-Sept-06</h2>
+                                  <p>Statement Document 02 Submission</p>
+                             </div>
+                           </div>
+                           <div class="container2 left">
+                             <div class="content">
+                                  <h2>2023-Sept-07</h2>
+                                  <p>Progress Presentation 02</p>
+                             </div>
+                           </div>
+                           <div class="container2 right">
+                             <div class="content">
+                               <h2>2023-Sept-10</h2>
+                               <p>Final Report Draft Submission</p>
+                             </div>
+                           </div>
+                           <div class="container2 left">
+                             <div class="content">
+                               <h2>2023-Oct-30</h2>
+                               <p>Final Presentation</p>
+                             </div>
+                           </div>
+                           <div class="container2 right">
+                             <div class="content">
+                               <h2>2023-Nov-04</h2>
+                               <p>Submitting the Research LogBook</p>
+                             </div>
+                           </div>
+                           <div class="container2 left">
+                             <div class="content">
+                               <h2>2023-Nov-07</h2>
+                               <p>Final Website Deploying</p>
+                             </div>
+                           </div>
+                           <div class="container2 right">
+                             <div class="content">
+                               <h2>2023-Nov-27</h2>
+                               <p>Submit the proofread final report</p>
+                             </div>
+                           </div>
+                      </div>
+                </div>
+                <!--Milestones End-->
+<hr />
+                <!--download docs-->
+                <div class="container">
+                    
+                        <h1 style="margin-left: 8%" class="mb-5">Document and Presentation Downloads</h1>
+                        <div class="container-fluid" >
+                            <h2 style="margin-left: 5%">Documents</h2>
+                        <p style="margin-left: 5%">Please find all documents related to this project below.</p>
+                        </div>
+                        
+                        <div class="container-fluid" >
+                            <!-- Document cards -->
+                            <div class="carddowndolad">
+                                <div class="card-content">
+                                    <h3>Project charter</h3>
+                                    <button class="download-btn" type="button" onclick="downloadFile1()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                            <path d="M8 1a.5.5 0 0 1 .5.5v6.793l2.646-2.647a.5.5 0 1 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 8.293V1.5a.5.5 0 0 1 .5-.5z"/>
+                                            <path d="M0 13.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                        Download
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="carddowndolad">
+                                <div class="card-content">
+                                    <h3>Proposal Reports</h3>
+                                    <button class="download-btn" type="button" onclick="downloadFile2()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                            <path d="M8 1a.5.5 0 0 1 .5.5v6.793l2.646-2.647a.5.5 0 1 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 8.293V1.5a.5.5 0 0 1 .5-.5z"/>
+                                            <path d="M0 13.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                        Download
+                                    </button>
+                                </div>
+                            </div>
+                
+                            <div class="carddowndolad">
+                                <div class="card-content">
+                                    <h3>Status Document 01</h3>
+                                    <button class="download-btn" type="button" onclick="downloadFile3()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                            <path d="M8 1a.5.5 0 0 1 .5.5v6.793l2.646-2.647a.5.5 0 1 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 8.293V1.5a.5.5 0 0 1 .5-.5z"/>
+                                            <path d="M0 13.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                        Download
+                                    </button>
+                                </div>
+                            </div>
+                
+                            <div class="carddowndolad">
+                                <div class="card-content">
+                                    <h3>Status Document 02</h3>
+                                    <button class="download-btn" type="button" onclick="downloadFile4()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                            <path d="M8 1a.5.5 0 0 1 .5.5v6.793l2.646-2.647a.5.5 0 1 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 8.293V1.5a.5.5 0 0 1 .5-.5z"/>
+                                            <path d="M0 13.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                        Download
+                                    </button>
+                                </div>
+                            </div>
+                
+                            <div class="carddowndolad">
+                                <div class="card-content">
+                                    <h3>Final Reports</h3>
+                                    <button class="download-btn" type="button" onclick="downloadFile5()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                            <path d="M8 1a.5.5 0 0 1 .5.5v6.793l2.646-2.647a.5.5 0 1 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 8.293V1.5a.5.5 0 0 1 .5-.5z"/>
+                                            <path d="M0 13.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                        Download
+                                    </button>
+                                </div>
+                            </div>
+                
+                        </div>
+                        <div class="container-fluid" >
+                            <h2 style="margin-left: 5%" id="Presentations">Presentations</h2>
+                        <p style="margin-left: 5%">Please find all presentations related to this project below.</p>
+
+                        </div>
+                        
+                        <div class="container-fluid" >
+                            <!-- Presentation cards -->
+                
+                            <div class="carddowndolad">
+                                <div class="card-content">
+                                    <h3>Proposal Presentation</h3>
+                                    <button class="download-btn" type="button" onclick="downloadFile6()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                            <path d="M8 1a.5.5 0 0 1 .5.5v6.793l2.646-2.647a.5.5 0 1 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 8.293V1.5a.5.5 0 0 1 .5-.5z"/>
+                                            <path d="M0 13.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                        Download
+                                    </button>
+                                </div>
+                            </div>
+                
+                            <div class="carddowndolad">
+                                <div class="card-content">
+                                    <h3>Progress Presentation 01</h3>
+                                    <button class="download-btn" type="button" onclick="downloadFile7()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                            <path d="M8 1a.5.5 0 0 1 .5.5v6.793l2.646-2.647a.5.5 0 1 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 8.293V1.5a.5.5 0 0 1 .5-.5z"/>
+                                            <path d="M0 13.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                        Download
+                                    </button>
+                                </div>
+                            </div>
+                
+                            <div class="carddowndolad">
+                                <div class="card-content">
+                                    <h3>Progress Presentation 02</h3>
+                                    <button class="download-btn" type="button" onclick="downloadFile8()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                            <path d="M8 1a.5.5 0 0 1 .5.5v6.793l2.646-2.647a.5.5 0 1 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 8.293V1.5a.5.5 0 0 1 .5-.5z"/>
+                                            <path d="M0 13.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                        Download
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="carddowndolad">
+                                <div class="card-content">
+                                    <h3>Final Presentation</h3>
+                                    <button class="download-btn" type="button" onclick="downloadFile9()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                            <path d="M8 1a.5.5 0 0 1 .5.5v6.793l2.646-2.647a.5.5 0 1 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 8.293V1.5a.5.5 0 0 1 .5-.5z"/>
+                                            <path d="M0 13.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                        Download
+                                    </button>
+                                </div>
+                            </div>
+                
+                        </div>
+                    
+
+    <script>
+        function downloadFile1() {
+           window.open("https://drive.google.com/drive/folders/1-0a2zsbtjYFpCB3Qqg6sNojrOZDu8WwB?usp=sharing")
+        }
+        function downloadFile2() {
+           window.open("https://drive.google.com/drive/folders/1-EVqYo717omP2WWekMaLWLbaGMDdTume?usp=sharing")
+        }
+        function downloadFile3() {
+           window.open("https://drive.google.com/drive/folders/1-TvvQJjhR4N982EtQMocv1KkFPpd05Te?usp=sharing")
+        }
+        function downloadFile4() {
+           window.open("https://drive.google.com/drive/folders/1-WyhWnQfZf-StY12B_Jt5uZsdc_t9OK7?usp=sharing")
+        }
+        function downloadFile5() {
+           window.open("https://drive.google.com/drive/folders/1-ZBJdFyFhzYL73pe_ZGtI3noo8mULg1g?usp=sharing")
+        }
+        function downloadFile6() {
+           window.open("https://drive.google.com/drive/folders/1-n_3pPcwHWcpTOmrQhBc0DSWeWACaZNN?usp=sharing")
+        }
+        function downloadFile7() {
+           window.open("https://drive.google.com/drive/folders/1-o47GxWDrG0On4UkJFwA8mLS4ZlFecuJ?usp=sharing")
+        }
+        function downloadFile8() {
+           window.open("https://drive.google.com/drive/folders/1-rzyJnSv0s-wJK-tfUfZ85031aggeewZ?usp=sharing")
+        }
+        function downloadFile9() {
+           window.open("https://drive.google.com/drive/folders/1-xV22oLjBcZ_f9jp64x8O2RqbY1pUI8G?usp=sharing")
+        }
+     </script>
+                </div>
+                <!--download docs End-->
+<hr />
+    <!-- Research Contents End--> 
+    <!-- Team Start -->
+
+        <div class="container">
+            <div class="text-center pb-2">
+                <!-- <h6 class="text-primary text-uppercase font-weight-bold">Delivery Team</h6> -->
+                <h1 class="mb-4">Our Supervisor And Co Supervisor</h1>
+            </div>
+            <div class="row">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/pradeepa_madam.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Ms. Pradeepa Bandara</h5>
+                      <p class="card-text">Supervisor</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Faculty of Computing</li>
+                      <li class="list-group-item">Sri Lanka Institute of Information Technology</li>
+                    </ul>
+                    <div class="card-body">
+                      <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                      <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                      <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                      <a class="btn btn-outline-dark btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/Jenny_madam.jpeg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Ms. Jenny Krishara</h5>
+                      <p class="card-text">Co-Supervisor</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Faculty of Computing</li>
+                      <li class="list-group-item">Sri Lanka Institute of Information Technology</li>
+                    </ul>
+                    <div class="card-body">
+                      <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                      <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                      <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                      <a class="btn btn-outline-dark btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <hr/>
+        <div class="container">
+            <div class="text-center pb-2">
+                <!-- <h6 class="text-primary text-uppercase font-weight-bold">Delivery Team</h6> -->
+                <h1 class="mb-4">Our Project Team</h1>
+            </div>
+            <div class="row">
+                <div class="card" style="width: 17rem;">
+                    <img class="card-img-top" src="img/sundar_shrestha.png" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Ven. Shrestha Thero S</h5>
+                      <p class="card-text">Group Leader</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Faculty of Computing</li>
+                      <li class="list-group-item">Sri Lanka Institute of Information Technology</li>
+                    </ul>
+                    <div class="card-body">
+                      <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                      <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                      <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                      <a class="btn btn-outline-dark btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="card" style="width: 17rem;">
+                    <img class="card-img-top" src="img/tharushi.JPG" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">De Silva W. M. T. T</h5>
+                      <p class="card-text">Member 01</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Faculty of Computing</li>
+                      <li class="list-group-item">Sri Lanka Institute of Information Technology</li>
+                    </ul>
+                    <div class="card-body">
+                      <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                      <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                      <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                      <a class="btn btn-outline-dark btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            
+                <div class="card" style="width: 17rem;">
+                    <img class="card-img-top" src="img/adeesha.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Devapriya A. H. A. L</h5>
+                      <p class="card-text">Member 02</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Faculty of Computing</li>
+                      <li class="list-group-item">Sri Lanka Institute of Information Technology</li>
+                    </ul>
+                    <div class="card-body">
+                      <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                      <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                      <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                      <a class="btn btn-outline-dark btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="card" style="width: 17rem;">
+                    <img class="card-img-top" src="img/nadeeshan.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Karunarathna S.N.D</h5>
+                      <p class="card-text">Member 03</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Faculty of Computing</li>
+                      <li class="list-group-item">Sri Lanka Institute of Information Technology</li>
+                    </ul>
+                    <div class="card-body">
+                      <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                      <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                      <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                      <a class="btn btn-outline-dark btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
+        <div class="row pt-5">
+            <div class="col-lg-7 col-md-6">
+                <div class="row">
+                    <div class="col-md-6 mb-5">
+                        <h3 class="text-primary mb-4">Get In Touch</h3>
+                        <p><i class="fa fa-map-marker-alt mr-2"></i>NEW KANDY ROAD, MALABE</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i>+94112 657 974</p>
+                        <p><i class="fa fa-envelope mr-2"></i>HearSL@Srilanka.com</p>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-5">
+                        <h3 class="text-primary mb-4">Quick Links</h3>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Milestones</a>
+                            <a  class="text-white mb-2" data-toggle="dropdown"><i class="fa fa-angle-right mr-2"></i>Essential links</a>
+                                <div class="dropdown-menu rounded-0 m-0">
+                                    <p class="text-success">Downloads</p>
+                                    <a href="pages/downdocuments.html" class="dropdown-item">Presentations & Documents</a>
+                                    <p class="text-success">Project Scope</p>
+                                    <a href="pages/literatureSurvey.html" class="dropdown-item">Literature Survey</a>
+                                    <a href="pages/ResearchGap.html" class="dropdown-item">Research Gap</a>
+                                    <a href="pages/researchproblemnsolution.html" class="dropdown-item">Research Problem & Solution</a>
+                                    <a href="pages/researchObjectives.html" class="dropdown-item">Research Objectives</a>
+                                    <a href="pages/methodology.html" class="dropdown-item">Methodology</a>
+                                    <a href="pages/technologies.html" class="dropdown-item">Technologies</a>
+                                </div>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">Get in Touch With Us</h3>
+                <p>If you like to connect with us, please fill your Email below and click Sign Up.</p>
+                <div class="w-100">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Your Email Address">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary px-4">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: #3E3E4E !important;">
+        <div class="row">
+            <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">&copy; <a href="#">HearSL</a>. All Rights Reserved. 
+				
+				<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+				Designed by <a href="https://hearslDevlopment.com">HearSL Team</a>
+                </p>
+            </div>
+            <div class="col-lg-6 text-center text-md-right">
+                <ul class="nav d-inline-flex">
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Privacy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Terms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">FAQs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Help</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+   
+    
+</body>
+
+</html>
